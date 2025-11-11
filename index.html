@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Savana - Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>Savana Fashion Portal &#128087;</header>
+
+  <nav>
+    <a href="index.html">&#8962; Home</a>
+    <a href="about.html">&#8505; About Us</a>
+    <a href="orders.html">&#128230; My Orders</a>
+    <a href="login.html">&#128274; Login</a>
+    <a href="logout.html">&#128275; Logout</a>
+    <a href="cart.html">&#128722; Add to Cart</a>
+  </nav>
+
+  <div class="main-content" align="center">
+    <h2>Welcome to Savana Fashion!</h2>
+    <p>Discover the latest trends and styles at affordable prices. Shop now for dresses, tops, and more!</p>
+  </div>
+<!-- Product Section -->
+  <div class="container" id="home">
+    <div class="product">
+      <img src="https://www.atticsalt.in/cdn/shop/files/014E3DA2-B92C-4C90-91D6-53FEEC6EA010.jpg?v=1745481273&width=2048" alt="Summer Dress" />
+      <div class="details">
+        <h3>Floral Summer Dress</h3>
+        <p class="price">₹1,299 <span class="discount">(20% OFF)</span></p>
+        <button onclick="addToCart('Floral Summer Dress')">&#128722; Add to Cart</button>
+        <button onclick="buyNow('Floral Summer Dress')">&#128179; Buy Now</button>
+      </div>
+    </div>
+
+    <div class="product">
+      <img src="https://m.media-amazon.com/images/I/414HMysVfoL._AC_UY1100_.jpg" alt="Evening Gown" />
+      <div class="details">
+        <h3>Elegant Evening Gown</h3>
+        <p class="price">₹2,999 <span class="discount">(25% OFF)</span></p>
+        <button onclick="addToCart('Elegant Evening Gown')">&#128722; Add to Cart</button>
+        <button onclick="buyNow('Elegant Evening Gown')">&#128179; Buy Now</button>
+      </div>
+    </div>
+
+    <div class="product">
+      <img src="https://stylequotient.co.in/cdn/shop/files/SS23SQALBY_WHT_1.jpg?v=1686111794" alt="Casual Top" />
+      <div class="details">
+        <h3>Casual Top</h3>
+        <p class="price">₹799 <span class="discount">(10% OFF)</span></p>
+        <button onclick="addToCart('Casual Top')">&#128722; Add to Cart</button>
+        <button onclick="buyNow('Casual Top')">&#128179; Buy Now</button>
+      </div>
+    </div>
+
+    <div class="product">
+      <img src="https://anayadesignerstudio.com/cdn/shop/files/Party-Wear-Long-Dress-With-Dupatta-For-Women.jpg?v=1714620399&width=360" alt="Party Dress" />
+      <div class="details">
+        <h3>Party Wear Dress</h3>
+        <p class="price">₹1,899 <span class="discount">(15% OFF)</span></p>
+        <button onclick="addToCart('Party Wear Dress')">&#128722; Add to Cart</button>
+        <button onclick="buyNow('Party Wear Dress')">&#128179; Buy Now</button>
+      </div>
+    </div>
+  </div>
+<!-- <!-- Floating Chat Button --> -->
+  <!-- <div class="chatbot-toggle" onclick="toggleChatbot()">&#128172;</div> -->
+
+  <!-- <!-- Chatbot --> -->
+  <!-- <div class="chatbot" id="chatbot"> -->
+    <!-- <div class="chatbot-header"> -->
+      <!-- &#128172; Savana Support Chatbot -->
+      <!-- <span class="close-btn" onclick="toggleChatbot()">&#10005;</span> -->
+    <!-- </div> -->
+    <!-- <div class="chatbot-body" id="chatBody"> -->
+      <!-- <div class="message bot">&#128075; Hello! Welcome to Savana</div> -->
+      <!-- <div class="message bot"> -->
+        <!-- I can help you with orders, returns, damages, and payment queries. -->
+      <!-- </div> -->
+    <!-- </div> -->
+    <!-- <div class="chatbot-input"> -->
+      <!-- <input type="text" id="userInput" placeholder="Type your message..." /> -->
+      <!-- <button onclick="sendMessage()">Send</button> -->
+    <!-- </div> -->
+  <!-- </div> -->
+
+  <footer>© 2025 Savana Fashion | Powered by Hugging Face Chatbot AI</footer>
+   <script>
+    const chatBody = document.getElementById("chatBody");
+
+    function addToCart(item) {
+      alert(`${item} added to your cart`);
+    }
+
+    function buyNow(item) {
+      alert(`Redirecting to secure payment for ${item}`);
+    }
+
+    function sendMessage() {
+      const input = document.getElementById("userInput");
+      const text = input.value.trim();
+      if (!text) return;
+
+      const userMsg = document.createElement("div");
+      userMsg.className = "message user";
+      userMsg.textContent = text;
+      chatBody.appendChild(userMsg);
+      input.value = "";
+
+      setTimeout(() => {
+        const botMsg = document.createElement("div");
+        botMsg.className = "message bot";
+        const lower = text.toLowerCase();
+
+        if (lower.includes("return")) {
+          botMsg.textContent = "You can request a return within 7 days in 'My Orders'.";
+        } else if (lower.includes("damage")) {
+          botMsg.textContent = "Upload a photo of the damaged product for a replacement.";
+        } else if (lower.includes("order")) {
+          botMsg.textContent = "Your latest order #S1245 is out for delivery.";
+        } else if (lower.includes("hello") || lower.includes("hi")) {
+          botMsg.textContent = "Hi there! How can I help you today?";
+        } else if (lower.includes("thank")) {
+          botMsg.textContent = "You're welcome! Happy shopping!";
+        } else if (lower.includes("payment")) {
+          botMsg.textContent = "Refunds are processed within 3–5 business days.";
+        } else {
+          botMsg.textContent = "I'm here to help with your queries and orders!";
+        }
+
+        chatBody.appendChild(botMsg);
+        chatBody.scrollTop = chatBody.scrollHeight;
+      }, 600);
+    }
+
+    function toggleChatbot() {
+      const chatbot = document.getElementById("chatbot");
+      chatbot.classList.toggle("active");
+    }
+	
+  </script>
+  <script src='https://cdn.jotfor.ms/agent/embedjs/019a7431835b7d37923674e728f3dffbf220/embed.js'>
+</script>
+
+</body>
+</html>
