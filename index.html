@@ -96,48 +96,6 @@
     function buyNow(item) {
       alert(`Redirecting to secure payment for ${item}`);
     }
-
-    function sendMessage() {
-      const input = document.getElementById("userInput");
-      const text = input.value.trim();
-      if (!text) return;
-
-      const userMsg = document.createElement("div");
-      userMsg.className = "message user";
-      userMsg.textContent = text;
-      chatBody.appendChild(userMsg);
-      input.value = "";
-
-      setTimeout(() => {
-        const botMsg = document.createElement("div");
-        botMsg.className = "message bot";
-        const lower = text.toLowerCase();
-
-        if (lower.includes("return")) {
-          botMsg.textContent = "You can request a return within 7 days in 'My Orders'.";
-        } else if (lower.includes("damage")) {
-          botMsg.textContent = "Upload a photo of the damaged product for a replacement.";
-        } else if (lower.includes("order")) {
-          botMsg.textContent = "Your latest order #S1245 is out for delivery.";
-        } else if (lower.includes("hello") || lower.includes("hi")) {
-          botMsg.textContent = "Hi there! How can I help you today?";
-        } else if (lower.includes("thank")) {
-          botMsg.textContent = "You're welcome! Happy shopping!";
-        } else if (lower.includes("payment")) {
-          botMsg.textContent = "Refunds are processed within 3–5 business days.";
-        } else {
-          botMsg.textContent = "I'm here to help with your queries and orders!";
-        }
-
-        chatBody.appendChild(botMsg);
-        chatBody.scrollTop = chatBody.scrollHeight;
-      }, 600);
-    }
-
-    function toggleChatbot() {
-      const chatbot = document.getElementById("chatbot");
-      chatbot.classList.toggle("active");
-    }
 	
   </script>
   <script src='https://cdn.jotfor.ms/agent/embedjs/019a7431835b7d37923674e728f3dffbf220/embed.js'>
